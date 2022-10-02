@@ -1,27 +1,48 @@
-# Next.js + Tailwind CSS Example
+# NFT Marketplace
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Technology Stack & Tools
 
-## Preview
+- Solidity (Writing Smart Contract)
+- Javascript (React & Testing)
+- [Ethers](https://docs.ethers.io/v5/) (Blockchain Interaction)
+- [Hardhat](https://hardhat.org/) (Development Framework)
+- [Ipfs](https://ipfs.io/) (Metadata storage)
+- [React routers](https://v5.reactrouter.com/) (Navigational components)
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Requirements For Initial Setup
+- Install [NodeJS](https://nodejs.org/en/), should work with any node version below 16.5.0
+- Install [Hardhat](https://hardhat.org/)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Setting Up
+### 1. Clone/Download the Repository
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+### 2. Install Dependencies:
+```
+$ cd nft_marketplace
+$ npm install
+```
+### 3. Boot up local development blockchain
+```
+$ cd nft_marketplace
+$ npx hardhat node
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### 4. Connect development blockchain accounts to Metamask
+- Copy private key of the addresses and import to Metamask
+- Connect your metamask to hardhat blockchain, network 127.0.0.1:8545.
+- If you have not added hardhat to the list of networks on your metamask, open up a browser, click the fox icon, then click the top center dropdown button that lists all the available networks then click add networks. A form should pop up. For the "Network Name" field enter "Hardhat". For the "New RPC URL" field enter "http://127.0.0.1:8545". For the chain ID enter "31337". Then click save.  
+
+
+### 5. Migrate Smart Contracts
+`npx hardhat run src/backend/scripts/deploy.js --network localhost`
+
+### 6. Run Tests
+`$ npx hardhat test`
+
+### 7. Launch Frontend
+`$ npm run start`
+
+License
+----
+MIT
+
